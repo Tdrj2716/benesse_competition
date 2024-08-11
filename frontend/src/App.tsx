@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import { pageLink } from "./constants/link";
-import LoginPage from "./features/login/page";
-import ClassSchedulePage from "./features/schedule/page";
+import LoginPage from "./features/login/LoginPage";
+import ClassSchedulePage from "./features/schedule/ClassSchedulePage";
 
 function App() {
   return (

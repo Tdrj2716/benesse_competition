@@ -21,11 +21,11 @@ const periods: Period[] = [
   { startTime: "16:45", endTime: "18:15", period: 5 },
 ];
 
-const ClassSchedulePage: React.FC = () => {
+const ScheduleTable: React.FC = () => {
   const days = weekdays.slice(0, 5);
 
   return (
-    <Box display="flex" justifyContent="space-between">
+    <Box width="100%" justifyContent="space-between" margin={2} overflow="auto">
       <Stack direction="column" spacing={0} width="fit-content" padding={4}>
         <Stack direction="row" spacing={1} justifyContent="flex-end">
           {days.map((day) => (
@@ -58,4 +58,4 @@ const ClassSchedulePage: React.FC = () => {
   );
 };
 
-export default ClassSchedulePage;
+export default ScheduleTable;
