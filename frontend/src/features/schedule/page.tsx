@@ -25,16 +25,22 @@ const ClassSchedulePage: React.FC = () => {
   const days = weekdays.slice(0, 5);
 
   return (
-    <Box sx={{ flexGrow: 1, m: 2, overflow: "auto" }}>
-      <Stack direction="column" spacing={0}>
+    <Box display="flex" justifyContent="space-between">
+      <Stack direction="column" spacing={0} width="fit-content" padding={4}>
         <Stack direction="row" spacing={1} justifyContent="flex-end">
           {days.map((day) => (
-            <WeekdayLabel day={day} />
+            <WeekdayLabel key={day} day={day} />
           ))}
         </Stack>
 
         {periods.map((periodLabel, index) => (
-          <Stack key={index} direction="row" alignItems="center" spacing={1}>
+          <Stack
+            key={index}
+            direction="row"
+            justifyContent="flex-end"
+            alignItems="center"
+            spacing={1}
+          >
             <PeriodLabel {...periodLabel} />
             {days.map((day) => (
               <Box key={`${day}-${index}`} sx={{ margin: 0 }}>
