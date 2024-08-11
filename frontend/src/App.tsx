@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import { pageLink } from "./constants/link";
+import TimerPage from "./features/Timer/TimerPage";
 import LoginPage from "./features/login/LoginPage";
 import ClassSchedulePage from "./features/schedule/ClassSchedulePage";
 
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path={pageLink.login} element={<LoginPage />} />
           <Route path={pageLink.schedule} element={<ClassSchedulePage />} />
+          <Route path={pageLink.timer} element={<TimerPage />} />
         </Routes>
       </BrowserRouter>
     </>
