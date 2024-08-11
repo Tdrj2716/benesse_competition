@@ -3,6 +3,7 @@ import React from "react";
 import { Box, Divider, Typography } from "@mui/material";
 
 import PageContainer from "../../components/PageContainer";
+import { dummySchedule } from "../../constants/schedule";
 import ScheduleTable from "./ScheduleTable";
 
 const ClassScheduleTable: React.FC = () => {
@@ -11,7 +12,7 @@ const ClassScheduleTable: React.FC = () => {
       <Box maxWidth="fullWidth" gap={2}>
         <Typography variant="h6">時間割</Typography>
         <Divider />
-        <ScheduleTable />
+        <ScheduleTable {...dummySchedule} />
       </Box>
     </PageContainer>
   );

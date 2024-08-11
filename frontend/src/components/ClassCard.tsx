@@ -4,13 +4,9 @@ import { Link, Paper, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import { pageLink } from "../constants/link";
+import { LectureBase } from "../types/schedule";
 
-// import { Lecture } from "../types/schedule";
-
-interface ClassCardProps {
-  lectureName?: string;
-  lectureLink?: string;
-}
+type ClassCardProps = Partial<LectureBase>;
 
 const ClassCard: React.FC<ClassCardProps> = (props: ClassCardProps) => {
   const { lectureName, lectureLink } = props;

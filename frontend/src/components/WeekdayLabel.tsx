@@ -2,14 +2,13 @@ import React from "react";
 
 import { Card, Typography } from "@mui/material";
 
-import { weekdays } from "../constants/schedule";
+import { DayOfWeek } from "../types/schedule";
 
-type Weekday = (typeof weekdays)[number];
 interface WeekdayLabelProps {
-  day: Weekday;
+  day: DayOfWeek;
 }
 
-const getWeekdayString = (day: Weekday): string => {
+const getWeekdayString = (day: DayOfWeek): string => {
   switch (day) {
     case "Monday":
       return "月";
