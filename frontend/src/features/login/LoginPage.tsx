@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Box, Button, Container, Stack } from "@mui/material";
+import { Button, Container, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import Appbar from "../../components/Appbar";
+import PageContainer from "../../components/PageContainer";
 import { pageLink } from "../../constants/link";
 
 const LoginPage: React.FC = () => {
@@ -13,16 +13,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Box
-      sx={{
-        margin: 0,
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-        bgcolor: "#f3e5f5",
-      }}
-    >
-      <Appbar title="Focus Lecture" />
+    <PageContainer>
       <Container maxWidth="sm" sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
         <Stack spacing={2} width="100%">
           <Button
@@ -54,7 +45,7 @@ const LoginPage: React.FC = () => {
           </Button>
         </Stack>
       </Container>
-    </Box>
+    </PageContainer>
   );
 };
 
