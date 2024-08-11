@@ -1,10 +1,15 @@
 import React from "react";
 
 import { Button, CircularProgress, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import PageContainer from "../../components/PageContainer";
+import { pageLink } from "../../constants/link";
 
 const TimerPage: React.FC = () => {
+  const navigate = useNavigate();
+  const backToSchedule = () => navigate(pageLink.schedule);
+
   return (
     <PageContainer>
       <Grid
@@ -45,7 +50,11 @@ const TimerPage: React.FC = () => {
             </Button>
           </Grid>
           <Grid item>
-            <Button variant="outlined" sx={{ color: "#673ab7", borderColor: "#673ab7" }}>
+            <Button
+              variant="outlined"
+              sx={{ color: "#673ab7", borderColor: "#673ab7" }}
+              onClick={backToSchedule}
+            >
               終了する
             </Button>
           </Grid>
