@@ -22,8 +22,6 @@ const LoginPage: React.FC = () => {
             size="large"
             sx={{
               borderRadius: 28,
-              bgcolor: "#673ab7",
-              "&:hover": { bgcolor: "#5e35b1" },
             }}
             onClick={handleClick}
           >
@@ -35,9 +33,6 @@ const LoginPage: React.FC = () => {
             size="large"
             sx={{
               borderRadius: 28,
-              borderColor: "#673ab7",
-              color: "#673ab7",
-              "&:hover": { borderColor: "#5e35b1", color: "#5e35b1" },
             }}
             onClick={handleClick}
           >

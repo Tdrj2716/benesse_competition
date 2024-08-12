@@ -10,15 +10,7 @@ interface Prop {
 
 const PageContainer: React.FC<Prop> = ({ children }) => {
   return (
-    <Box
-      margin={0}
-      display="flex"
-      flexDirection="column"
-      minHeight="100vh"
-      sx={{
-        bgcolor: "#f3e5f5",
-      }}
-    >
+    <Box margin={0} display="flex" flexDirection="column" minHeight="100vh">
       <Appbar title="Focus Lecture" />
       {children}
     </Box>

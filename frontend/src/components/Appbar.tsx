@@ -12,7 +12,7 @@ const Appbar: React.FC<AppbarProps> = (props: AppbarProps) => {
 
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: "#673ab7" }}>
+      <AppBar position="static">
         <Toolbar>
           <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <MenuIcon />
@@ -20,7 +20,7 @@ const Appbar: React.FC<AppbarProps> = (props: AppbarProps) => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {title ?? "Website"}
           </Typography>
-          <Avatar sx={{ bgcolor: "#9575cd" }}>O</Avatar>
+          <Avatar>O</Avatar>
         </Toolbar>
       </AppBar>
       {/* For avoiding invisible content behind Appbar, adding a second Toolbar component */}

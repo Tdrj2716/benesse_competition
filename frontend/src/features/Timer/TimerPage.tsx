@@ -60,7 +60,6 @@ const TimerPage: React.FC = React.memo(() => {
           variant="determinate"
           value={Math.min((timer / limit) * 100, 100)}
           sx={{
-            color: "#673ab7",
             position: "absolute",
           }}
         />
@@ -73,20 +72,12 @@ const TimerPage: React.FC = React.memo(() => {
         </Typography>
         <Grid container direction="row" justifyContent="center" spacing={2}>
           <Grid item>
-            <Button
-              variant="contained"
-              onClick={triggerCheerings}
-              sx={{ bgcolor: "#673ab7", "&:hover": { bgcolor: "#5e35b1" } }}
-            >
+            <Button variant="contained" onClick={triggerCheerings}>
               応援を流す
             </Button>
           </Grid>
           <Grid item>
-            <Button
-              variant="outlined"
-              sx={{ color: "#673ab7", borderColor: "#673ab7" }}
-              onClick={backToSchedule}
-            >
+            <Button variant="outlined" onClick={backToSchedule}>
               終了する
             </Button>
           </Grid>
