@@ -4,6 +4,7 @@ import { Link, Paper, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import { pageLink } from "../constants/link";
+import { cardHeight, cardVariant, cardWidth } from "../constants/styleVariables";
 import { LectureBase } from "../types/schedule";
 
 type ClassCardProps = Partial<LectureBase>;
@@ -17,10 +18,10 @@ const ClassCard: React.FC<ClassCardProps> = (props: ClassCardProps) => {
 
   return (
     <Paper
-      variant="outlined"
+      variant={cardVariant}
       sx={{
-        width: "140px",
-        height: "90px",
+        width: cardWidth,
+        height: cardHeight,
         paddingTop: 2,
         bgcolor: isValidProps ? "white" : "#f0f0f0",
       }}

@@ -2,6 +2,7 @@ import React from "react";
 
 import { Card, Typography } from "@mui/material";
 
+import { cardVariant, cardWidth } from "../constants/styleVariables";
 import { DayOfWeek } from "../types/schedule";
 
 interface WeekdayLabelProps {
@@ -29,10 +30,10 @@ const WeekdayLabel: React.FC<WeekdayLabelProps> = (props: WeekdayLabelProps) => 
   const { day } = props;
   return (
     <Card
-      variant="outlined"
+      variant={cardVariant}
       sx={{
         // borderRadius: '4px',
-        width: "140px",
+        width: cardWidth,
         height: "24px",
       }}
     >
