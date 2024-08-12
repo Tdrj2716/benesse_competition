@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 
 import { Button, CircularProgress, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import PageContainer from "../../components/PageContainer";
+import ScrollingText from "../../components/ScrollingText";
 import { pageLink } from "../../constants/link";
-import "./Circle.css";
+import { useCheerings, useTimeNotificaion } from "./useMessage";
 
 const formatTime = (seconds: number): string => {
   const hours = Math.floor(seconds / 3600);
@@ -14,17 +15,30 @@ const formatTime = (seconds: number): string => {
   return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
 };
 
-const TimerPage: React.FC = () => {
+const TimerPage: React.FC = React.memo(() => {
   const navigate = useNavigate();
   const backToSchedule = () => navigate(pageLink.schedule);
 
   const limit = 90 * 60;
-  const [timer, setTimer] = useState(0);
-  useEffect(() => {
-    const intervalId = setInterval(() => setTimer(timer + 1), 1000);
+  const { timer, message } = useTimeNotificaion(limit);
+  const { cheerings, triggerCheerings } = useCheerings();
 
-    return () => clearInterval(intervalId);
-  }, [timer]);
+  const scrollingTexts = useMemo(
+    () =>
+      cheerings.map((item: string, index: number) => {
+        const delay = Math.round(Math.random() * 4);
+        return (
+          <ScrollingText
+            key={`${item}-${index}`}
+            text={item}
+            delay={delay}
+            duration={8}
+            top={`${delay * 60}px`}
+          />
+        );
+      }),
+    [cheerings],
+  );
 
   return (
     <PageContainer>
@@ -50,16 +64,18 @@ const TimerPage: React.FC = () => {
             position: "absolute",
           }}
         />
+        {scrollingTexts}
         <Typography variant="h2" component="div" sx={{ mb: 2 }}>
           {formatTime(timer)}
         </Typography>
         <Typography variant="subtitle1" sx={{ mb: 4 }}>
-          あと一息です！
+          {message}
         </Typography>
         <Grid container direction="row" justifyContent="center" spacing={2}>
           <Grid item>
             <Button
               variant="contained"
+              onClick={triggerCheerings}
               sx={{ bgcolor: "#673ab7", "&:hover": { bgcolor: "#5e35b1" } }}
             >
               応援を流す
@@ -78,6 +94,6 @@ const TimerPage: React.FC = () => {
       </Grid>
     </PageContainer>
   );
-};
+});
 
 export default TimerPage;
