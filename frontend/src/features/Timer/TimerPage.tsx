@@ -15,6 +15,8 @@ const formatTime = (seconds: number): string => {
   return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
 };
 
+const user = { userName: "User Name", score: 100 };
+
 const TimerPage: React.FC = React.memo(() => {
   const navigate = useNavigate();
   const backToSchedule = () => navigate(pageLink.schedule);
@@ -41,7 +43,7 @@ const TimerPage: React.FC = React.memo(() => {
   );
 
   return (
-    <PageContainer>
+    <PageContainer user={user}>
       <Grid
         container
         direction="column"

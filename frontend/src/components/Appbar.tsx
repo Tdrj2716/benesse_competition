@@ -1,26 +1,33 @@
 import React from "react";
 
-import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar, Avatar, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, Avatar, Stack, Toolbar, Typography } from "@mui/material";
+
+import { User } from "../types/user";
 
 interface AppbarProps {
   title?: string;
+  user?: User;
 }
 
 const Appbar: React.FC<AppbarProps> = (props: AppbarProps) => {
-  const { title } = props;
+  const { title, user } = props;
 
   return (
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {title ?? "Website"}
           </Typography>
-          <Avatar>O</Avatar>
+          <Stack direction="row" spacing={2}>
+            <Avatar>O</Avatar>
+            {user && (
+              <Stack direction="column" justifyContent="flex-end">
+                <Typography variant="body1">{user.userName}</Typography>
+                <Typography variant="subtitle2">{user.score} Point</Typography>
+              </Stack>
+            )}
+          </Stack>
         </Toolbar>
       </AppBar>
       {/* For avoiding invisible content behind Appbar, adding a second Toolbar component */}
